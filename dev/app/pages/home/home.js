@@ -6,7 +6,7 @@
 * @Last modified time: 15-09-2016
 */
 
-import { UserPage } from './pages/user/user';
+import { UserPage } from '../../pages/user/user';
 
 export class HomePage {
 

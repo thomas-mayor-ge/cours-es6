@@ -9,7 +9,7 @@
 # COURS ECMA SCRIPT 6
   DEVELOPPEMENT &amp; PRODUCTION WORKFLOW
 
-## Step 07 / Corr. sur step 8
+## Step 08 / Corr. sur step 9
 
 ### Todo
- 1. Créer un tâche pour build les fichiers JS Es6
+ 1. 
