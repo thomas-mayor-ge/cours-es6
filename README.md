@@ -12,4 +12,4 @@
 ## Step 07 / Corr. sur step 8
 
 ### Todo
- 1. 
+ 1. Créer un tâche pour build les fichiers JS Es6
