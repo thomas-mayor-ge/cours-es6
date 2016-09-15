@@ -11,11 +11,7 @@
 
 ## Step 06 / Corr. sur step 7
 
-### Prérequis
-
-  - installer `nvm` et `node.js`
-  - installer `npm` avec `nvm` si `npm` n'est pas installer sur votre machine.
-    voir google: 1:install nvm / 2:install npm
-
 ### Todo
-  1. Initialliser votre projet `$ npm init` et utiliser le nom: `<your-name>-es6-training`
+ 1. Installer Gulp en global sur votre machine
+ 2. Ajouter Gulp comme dépendence à votre projet
+ 3. Ajouter également Babel + Babelify + Vinyl-Transform
