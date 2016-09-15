@@ -9,7 +9,7 @@
 # COURS ECMA SCRIPT 6
   DEVELOPPEMENT &amp; PRODUCTION WORKFLOW
 
-## Step 05 / Corr. sur step 6
+## Step 06 / Corr. sur step 7
 
 ### Prérequis
 

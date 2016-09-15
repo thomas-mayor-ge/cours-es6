@@ -1,0 +1,19 @@
+{
+  "name": "cours-es6-training",
+  "version": "0.0.1",
+  "description": "<!-- @Author: Nicolas Fazio <webmaster-fazio> @Date:   01-09-2016 @Email:  contact@nicolasfazio.ch @Last modified by:   webmaster-fazio @Last modified time: 15-09-2016 -->",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FazioNico/cours-es6.git"
+  },
+  "author": "Nicolas Fazio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FazioNico/cours-es6/issues"
+  },
+  "homepage": "https://github.com/FazioNico/cours-es6#readme"
+}
