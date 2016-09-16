@@ -12,4 +12,4 @@
 ## Step 09 / Corr. sur step 10
 
 ### Todo
- 1. 
+ 1. ajouter un live reload sur votre projet
