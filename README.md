@@ -3,7 +3,7 @@
 @Date:   01-09-2016
 @Email:  contact@nicolasfazio.ch
 @Last modified by:   webmaster-fazio
-@Last modified time: 15-09-2016
+@Last modified time: 16-09-2016
 -->
 
 # COURS ECMA SCRIPT 6
@@ -14,4 +14,5 @@
 ### Todo
  1. Installer Gulp en global sur votre machine
  2. Ajouter Gulp comme dépendence à votre projet
- 3. Ajouter également Babel + Babelify + Vinyl-Transform
+ 3. Ajouter également Babel + Babelify + Browserify + Vinyl-Transform + vinyl-source-stream
+ 4. Créer fichier de config pour Gulp
