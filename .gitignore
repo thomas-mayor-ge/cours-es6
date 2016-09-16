@@ -7,3 +7,4 @@ plugins/
 Thumbs.db
 
 config.ts
+dist
