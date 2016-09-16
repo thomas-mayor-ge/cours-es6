@@ -9,7 +9,7 @@
 # COURS ECMA SCRIPT 6
   DEVELOPPEMENT &amp; PRODUCTION WORKFLOW
 
-## Step 09 / Corr. sur step 10
+## Step 10 / Corr. sur step 11
 
 ### Todo
- 1. ajouter un live reload sur votre projet
+ 1. 
