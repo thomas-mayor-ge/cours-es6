@@ -9,9 +9,7 @@
 # COURS ECMA SCRIPT 6
   DEVELOPPEMENT &amp; PRODUCTION WORKFLOW
 
-## Step 08 / Corr. sur step 9
+## Step 09 / Corr. sur step 10
 
 ### Todo
- 1. Copier le fichier index.html dans `dist/index.html` avec une tâche Gulp
- 2. Modifier l'url du fichier `bundle.js` dans `index.html`
- 3. Ouvrir l'application depuis le répértoire `dist`
+ 1. 

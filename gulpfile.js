@@ -13,6 +13,8 @@ var babelify = require('babelify');
 var browserify = require("browserify");
 var transform = require('vinyl-transform');
 var source = require('vinyl-source-stream');
+var removeHtmlComments  = require('gulp-remove-html-comments');
+
 
 // Config of project folders
 var config = {
@@ -30,4 +32,10 @@ gulp.task("build-js", function(){
     .bundle()
     .pipe(source("bundle.js"))
     .pipe(gulp.dest(config.desDir + '/js'));
+});
+
+gulp.task("copy-html", function(){
+    return gulp.src(['./dev/**/*.html'])
+    .pipe(removeHtmlComments())
+    .pipe(gulp.dest(config.desDir))
 });
