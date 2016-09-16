@@ -18,6 +18,7 @@ var removeHtmlComments  = require('gulp-remove-html-comments');
 
 // Config of project folders
 var config = {
+    pages     : ['dev/www/*.html'], 
     desDir:    './dist' /* répértoire de destination (prod) */
 }
 
@@ -35,7 +36,7 @@ gulp.task("build-js", function(){
 });
 
 gulp.task("copy-html", function(){
-    return gulp.src(['./dev/**/*.html'])
-    .pipe(removeHtmlComments())
-    .pipe(gulp.dest(config.desDir))
+    return gulp.src(config.pages)
+        .pipe(removeHtmlComments())
+        .pipe(gulp.dest(config.desDir))
 });
