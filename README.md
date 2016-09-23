@@ -13,3 +13,4 @@
 
 ### Todo
  1. Installer Typings
+ 2. Installer typings de jquery et es6-shim
