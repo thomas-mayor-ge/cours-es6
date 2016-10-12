@@ -9,8 +9,9 @@
 # COURS ECMA SCRIPT 6
   DEVELOPPEMENT &amp; PRODUCTION WORKFLOW
 
-## Step 10
+## Step 10 / Correction sur step11
 
 ### Todo
  1. pour récupérer le projet : cloner la branche puis installer tous les package npm avec : `$ npm install` puis lancer Gulp avec `$ gulp`.
  (ne pas oublier de démarer Node.js avec la commande `$ nvm use 6`)
+ 2. séparer le html des class `HomePage` et `UserPage`.
