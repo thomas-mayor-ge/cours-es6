@@ -13,3 +13,4 @@
 
 ### Todo
  1. pour récupérer le projet : cloner la branche puis installer tous les package npm avec : `$ npm install` puis lancer Gulp avec `$ gulp`.
+ (ne pas oublier de démarer Node.js avec la commande `$ nvm use 6`)
