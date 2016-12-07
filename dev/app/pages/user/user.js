@@ -34,19 +34,20 @@ export class UserPage {
     }
 
     displayTime(){
-      document.getElementById('time').innerHTML = this.getTime(this.time)
+      let timeElement = document.getElementById('time')
+      timeElement.innerHTML = this.getTime(this.time)
       setInterval(()=>{
         this.time = new Date();
         //console.log(`${this.time.getHours()}:${this.time.getMinutes()}:${this.time.getSeconds()}`)
-        document.getElementById('time').innerHTML = this.getTime(this.time)
-      },500)
+        timeElement.innerHTML = this.getTime(this.time)
+      },1000)
     }
 
     getTime(time){
       return    `
-        ${time.getHours()}:
-        ${time.getMinutes()}:
-        ${time.getSeconds()}
+      <time datetime="${(time.getFullYear() < 10)?'0'+time.getFullYear():time.getFullYear()}-${(time.getMonth() < 10)?'0'+time.getMonth():time.getMonth()}-${(time.getDate() < 10)?'0'+time.getDate():time.getDate()} ${(time.getHours() < 10)?'0'+time.getHours():time.getHours()}:${(time.getMinutes() < 10)?'0'+time.getMinutes():time.getMinutes()}:${(time.getSeconds() < 10)?'0'+time.getSeconds():time.getSeconds()}">
+        ${(time.getHours() < 10)?'0'+time.getHours():time.getHours()}:${(time.getMinutes() < 10)?'0'+time.getMinutes():time.getMinutes()}:${(time.getSeconds() < 10)?'0'+time.getSeconds():time.getSeconds()}
+      </time >
       `;
     }
 }
