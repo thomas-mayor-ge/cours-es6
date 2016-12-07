@@ -9,8 +9,8 @@
 # COURS ECMA SCRIPT 6
   DEVELOPPEMENT &amp; PRODUCTION WORKFLOW
 
-## Step 10 - 01 Timer | Correction
+## Step 10 - 02 Provider Unsplash | Correction
 
 - $ nvm use 6
 - $ npm install
-- $ gulp 
+- $ gulp
