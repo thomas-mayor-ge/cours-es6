@@ -11,6 +11,9 @@
 
 ## Step 10 - 02 Provider Unsplash | Correction
 
+- create Dev account on unsplash.com
+- get your own app config
+- replace value `API_KEY_CONFIG` in `.dev/providers/unsplash/unsplash-service.js` by your own.
 - $ nvm use 6
 - $ npm install
 - $ gulp
