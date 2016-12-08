@@ -18,7 +18,7 @@ export class UnsplashService{
   }
 
   getRandomImg(){
-      // Return a new promise.
+      //Return a new promise.
       return new Promise((resolve, reject)=> {
         // Do the usual XHR stuff
         var req = new XMLHttpRequest();

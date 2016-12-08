@@ -3,7 +3,7 @@
 * @Date:   15-09-2016
 * @Email:  contact@nicolasfazio.ch
 * @Last modified by:   webmaster-fazio
-* @Last modified time: 07-12-2016
+* @Last modified time: 08-12-2016
 */
 
 import  { UnsplashService } from '../../providers/unsplash/unsplash-service';
@@ -66,13 +66,14 @@ export class UserPage {
       let unsplash = new UnsplashService();
       let queryService = unsplash.getRandomImg()
       queryService.then((response)=>{
-        this.displayBackground(JSON.parse(response))
-      })
+        //console.log('res 1 -> ', response)
+         this.displayBackground(JSON.parse(response))
+       })
   }
 
   displayBackground(data){
     console.log('service response-> ')
-    console.log( data[0].urls.regular )
+    console.log( data[0] )
     let pageContainer = document.getElementsByTagName("section")[0]
     if(pageContainer){
       // some css with JS for BG
@@ -86,7 +87,7 @@ export class UserPage {
       pageContainer.style.color = `#fff`;
       pageContainer.style.opacity = `1`;
       pageContainer.style.background = `url(${data[0].urls.regular}) center center no-repeat`;
-      pageContainer.style.backgroundPosition = `cover`;
+      pageContainer.style.backgroundSize = `cover`;
 
     }
   }
