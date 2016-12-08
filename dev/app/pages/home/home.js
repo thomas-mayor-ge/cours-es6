@@ -10,9 +10,10 @@ import { UserPage } from '../../pages/user/user';
 
 export class HomePage {
 
-  constructor(appBody){
+  constructor(appBody,storageService){
     this.appBody = appBody
     this.pageTitle = 'Welcome';
+    this.storage = storageService
     this.initUI();
   }
 
@@ -55,10 +56,12 @@ export class HomePage {
         validationInput++
       }
     }
-    console.log(formInput)
     if(validationInput === 2){
+      // save in StorageService
+      this.storage.login(formInput)
+      // load UserPage
       console.log('load UserPage')
-      new UserPage(this.appBody,formInput);
+      new UserPage(this.appBody,formInput, this.storage);
     }
   }
 
