@@ -28,6 +28,11 @@ export class UserPage {
       <section>
         <h1 id="time"></h1>
         <p>${this.pageTitle} ${this.formData.email} !</p>
+        <button id="download">Download</button>
+        <footer>
+          <div>Photo by <address class="author"></address></div>
+          <div>This app using <a href="https://unsplash.com" target="_blank" title="Unsplash API">Unsplash API</a></div>
+        </footer>
       </section>
     `;
     // add page skeleton in body
@@ -68,6 +73,10 @@ export class UserPage {
       queryService.then((response)=>{
         //console.log('res 1 -> ', response)
          this.displayBackground(JSON.parse(response))
+         return response
+       })
+       .then((response)=>{
+         this.displayImgInfo(JSON.parse(response));
        })
   }
 
@@ -92,4 +101,30 @@ export class UserPage {
     }
   }
 
+  displayImgInfo(data){
+    console.log('displayImgInfo-> ',data)
+    // add author info
+    let addressContainer = document.getElementsByTagName("address")[0]
+    if(addressContainer){
+      addressContainer.style.cursor = 'pointer';
+      addressContainer.style.textDecoration = 'underline';
+      addressContainer.innerHTML = `${data[0].user.name}`
+      addressContainer.addEventListener('click', event =>
+        this.onGoToLink(event, `https://unsplash.com/@${data[0].user.username}`), false
+      )
+    }
+    // add download link for img
+    let downEl = document.getElementById("download")
+    if(downEl){
+      downEl.addEventListener('click', event =>
+        this.onGoToLink(event, data[0].links.download), false
+      )
+    }
+  }
+
+  onGoToLink(event,url){
+    event.preventDefault();
+    let win = window.open(url, '_blank');
+    win.focus();
+  }
 }
