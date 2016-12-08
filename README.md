@@ -3,17 +3,16 @@
 @Date:   01-09-2016
 @Email:  contact@nicolasfazio.ch
 @Last modified by:   webmaster-fazio
-@Last modified time: 07-12-2016
+@Last modified time: 09-12-2016
 -->
 
 # COURS ECMA SCRIPT 6
   DEVELOPPEMENT &amp; PRODUCTION WORKFLOW
 
-## Step 10 - 02 Provider Unsplash | Correction
+## Step 10 - 03 Add img user info & download link | Correction
 
-- create Dev account on unsplash.com
-- get your own app config
-- replace value `API_KEY_CONFIG` in `.dev/providers/unsplash/unsplash-service.js` by your own.
+- display user picture user name and add link to user profile (https://unsplash.com/@USERNAME)
+- display button to open new tab on the image url on click
 - $ nvm use 6
 - $ npm install
 - $ gulp
