@@ -3,7 +3,7 @@
 * @Date:   15-09-2016
 * @Email:  contact@nicolasfazio.ch
 * @Last modified by:   webmaster-fazio
-* @Last modified time: 08-12-2016
+* @Last modified time: 09-12-2016
 */
 
 import { UserPage } from '../../pages/user/user';
@@ -61,7 +61,7 @@ export class HomePage {
       this.storage.login(formInput)
       // load UserPage
       console.log('load UserPage')
-      new UserPage(this.appBody,formInput, this.storage);
+      new UserPage(this.appBody, this.storage);
     }
   }
 

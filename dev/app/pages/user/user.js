@@ -10,9 +10,9 @@ import  { UnsplashService } from '../../providers/unsplash/unsplash-service';
 
 export class UserPage {
 
-  constructor(appBody,formInput, storageService){
+  constructor(appBody, storageService){
     this.appBody = appBody
-    this.formData = formInput
+    this.formData = storageService.db[0].user
     this.time = new Date()
     this.pageTitle = this.grettings();
     this.userName = this.getUserName();
