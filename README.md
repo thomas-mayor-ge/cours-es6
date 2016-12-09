@@ -9,9 +9,10 @@
 # COURS ECMA SCRIPT 6
   DEVELOPPEMENT &amp; PRODUCTION WORKFLOW
 
-## Step 10 - 04 Provider Storage | Correction
+## Step 10 - 05 Greetings & UserName | Correction
 
-- create localStorage service to store user data
+- display different title if is morning or evening
+- display username withouth complete mail & capitalze first letter
 - $ nvm use 6
 - $ npm install
 - $ gulp

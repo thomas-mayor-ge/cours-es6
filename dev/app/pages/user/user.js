@@ -13,8 +13,9 @@ export class UserPage {
   constructor(appBody,formInput, storageService){
     this.appBody = appBody
     this.formData = formInput
-    this.pageTitle = "Hello";
     this.time = new Date()
+    this.pageTitle = this.grettings();
+    this.userName = this.getUserName();
     this.initUI();
   }
 
@@ -27,7 +28,7 @@ export class UserPage {
     let pageSkeleton = `
       <section>
         <h1 id="time"></h1>
-        <p>${this.pageTitle} ${this.formData.email} !</p>
+        <p>${this.pageTitle} ${this.userName}!</p>
         <button id="download">Download</button>
         <footer>
           <div>Photo by <address class="author"></address></div>
@@ -126,5 +127,25 @@ export class UserPage {
     event.preventDefault();
     let win = window.open(url, '_blank');
     win.focus();
+  }
+
+  grettings(){
+    let grettings;
+    switch (true) {
+      case this.time.getHours()>5 && this.time.getHours()<=10:
+        grettings = 'Good morning'
+        break;
+      case this.time.getHours()>=11 && this.time.getHours()<=17:
+        grettings = 'Hello'
+        break;
+      default:
+        grettings = 'Good evening'
+    }
+    return grettings
+  }
+
+  getUserName(){
+    // return usernal with first letter Cappitalized
+    return this.formData.email.split("@")[0].split(' ').map(c => c.slice(0, 1).toUpperCase() + c.slice(1)).join(' ')
   }
 }
