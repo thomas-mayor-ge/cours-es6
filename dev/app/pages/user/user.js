@@ -17,6 +17,7 @@ export class UserPage {
     this.pageTitle = this.grettings();
     this.userName = this.getUserName();
     this.initUI();
+    this.loadEventUI()
   }
 
   initUI(){
@@ -30,6 +31,7 @@ export class UserPage {
         <h1 id="time"></h1>
         <p>${this.pageTitle} ${this.userName}!</p>
         <button id="download">Download</button>
+        <input type="text" name="search" id="search" value="">
         <footer>
           <div>Photo by <address class="author"></address></div>
           <div>This app using <a href="https://unsplash.com" target="_blank" title="Unsplash API">Unsplash API</a></div>
@@ -41,6 +43,20 @@ export class UserPage {
     document.getElementsByTagName("section")[0].style.opacity = 0;
     this.displayTime()
     this.getBackgroundIMG()
+  }
+
+  loadEventUI(){
+    let search = document.getElementById('search')
+    if(search){
+      search.addEventListener('keyup', event => {
+        if(event.key === 'Enter'){
+          if(event.target.value.length >= 1){
+            console.log('https://www.google.ch/search?q='+event.target.value)
+            this.onGoToLink(event,'https://www.google.ch/search?q='+event.target.value)
+          }
+        }
+      })
+    }
   }
 
   displayTime(){
