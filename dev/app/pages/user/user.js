@@ -3,7 +3,7 @@
 * @Date:   15-09-2016
 * @Email:  contact@nicolasfazio.ch
 * @Last modified by:   webmaster-fazio
-* @Last modified time: 08-12-2016
+* @Last modified time: 09-12-2016
 */
 
 import  { UnsplashService } from '../../providers/unsplash/unsplash-service';
@@ -110,7 +110,7 @@ export class UserPage {
       addressContainer.style.textDecoration = 'underline';
       addressContainer.innerHTML = `${data[0].user.name}`
       addressContainer.addEventListener('click', event =>
-        this.onGoToLink(event, `https://unsplash.com/@${data[0].user.username}`), false
+        this.onGoToLink(event, data[0].user.links.html), false
       )
     }
     // add download link for img
