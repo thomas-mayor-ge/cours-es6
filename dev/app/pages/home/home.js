@@ -24,15 +24,24 @@ export class HomePage {
     }
     // create page skeleton
     let pageSkeleton = `
-      <section>
-        <h1>${this.pageTitle}</h1>
-        <form>
-          <p>
-            <label for="email">Email:</label> <input type="email" name="email" value="" placeholder="votreemail.ch"  /><br/>
-            <label for="password">Password:</label> <input type="password" name="password" value=""  /><br/>
-            <button>Login</button>
-          </p>
-        </form>
+      <section class=" valign-wrapper ">
+        <div class="valign">
+          <div class=" row">
+
+            <div class="col s6 offset-s3">
+              <h1>${this.pageTitle}</h1>
+              <form>
+                <p>
+                  <label for="email">Email:</label> <input type="email" name="email" value="" placeholder="your@email.com"  /><br/>
+                  <label for="password">Password:</label> <input type="password" name="password" value=""  /><br/>
+                  <button>Login</button>
+                </p>
+              </form>
+            </div>
+
+          </div>
+        </div>
+
       </section>`;
     // add page skeleton in body
     this.appBody.insertAdjacentHTML( 'afterbegin', pageSkeleton )
