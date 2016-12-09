@@ -21,7 +21,6 @@ export class TimerComponent {
       timeElement.innerHTML = this.getTime(this.time)
       timeElement.style.fontSize = '10rem';
       timeElement.style.margin = '0rem';
-      timeElement.style.textShadow = '0px 0px 50px rgba(0, 0, 0, 0.21)';
       // run interval
       setInterval(()=>{
         // asigne a new Date()

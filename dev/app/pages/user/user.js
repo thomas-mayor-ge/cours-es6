@@ -28,18 +28,41 @@ export class UserPage {
     }
     // create page skeleton
     let pageSkeleton = `
-      <section>
-        <h1 id="time"></h1>
-        <p>${this.pageTitle} ${this.userName}!</p>
-        <button id="download" class="waves-effect waves-light btn transparent z-depth-0">Download</button>
-        <div>
-          <i class="material-icons">search</i>
-          <input type="text" name="search" id="search" value="">
-        </div>
+      <section class="valign-wrapper">
+
+        <nav class="row transparent z-depth-0 flow-text">
+          <div class="input-field col s6">
+            <i id="icon-search" class="material-icons prefix">search</i>
+            <input id="search" type="text" class="validate">
+          </div>
+          <div class="col s6 right-align">
+              <i id="download" class="material-icons">file_download</i>
+          </div>
+        </nav>
+
+        <main class="valign center-align">
+          <div class="row">
+            <div class="col s12">
+              <h1 id="time"></h1>
+              <p class="greetings">${this.pageTitle} ${this.userName}!</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s12">
+              <a href="#" class="btn transparent z-depth-0">btn 1</a>
+              <a href="#" class="btn transparent z-depth-0">btn 2</a>
+              <a href="#" class="btn transparent z-depth-0">btn 3</a>
+            </div>
+          </div>
+        </main>
+
         <footer>
-          <div>Photo by <address class="author"></address></div>
-          <div>This app using <a href="https://unsplash.com" target="_blank" title="Unsplash API">Unsplash API</a></div>
+          <div class="row">
+            <div class="col s6 left-align">Photo by <address class="author"></address></div>
+            <div class="col s6 right-align">This app using <a href="https://unsplash.com" target="_blank" title="Unsplash API">Unsplash API</a></div>
+          </div>
         </footer>
+
       </section>
     `;
     // add page skeleton in body
@@ -58,6 +81,14 @@ export class UserPage {
             console.log('https://www.google.ch/search?q='+event.target.value)
             this.onGoToLink(event,'https://www.google.ch/search?q='+event.target.value)
           }
+        }
+      })
+    }
+    let iconSearch = document.getElementById('icon-search')
+    if(iconSearch){
+      iconSearch.addEventListener('click', event => {
+        if(search){
+          search.focus()
         }
       })
     }
@@ -92,7 +123,6 @@ export class UserPage {
       pageContainer.style.top = `0`;
       pageContainer.style.left = `0`;
       pageContainer.style.padding = `0px`;
-      pageContainer.style.textAlign = `center`;
       pageContainer.style.color = `#fff`;
       pageContainer.style.opacity = `1`;
       pageContainer.style.background = `url(${data[0].urls.regular}) center center no-repeat`;
@@ -108,6 +138,7 @@ export class UserPage {
     if(addressContainer){
       addressContainer.style.cursor = 'pointer';
       addressContainer.style.textDecoration = 'underline';
+      addressContainer.style.display = 'inline';
       addressContainer.innerHTML = `${data[0].user.name}`
       addressContainer.addEventListener('click', event =>
         this.onGoToLink(event, `https://unsplash.com/@${data[0].user.username}`), false
