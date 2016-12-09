@@ -6,6 +6,7 @@
 * @Last modified time: 09-12-2016
 */
 
+import  { userSkeleton } from './user-skeleton';
 import  { UnsplashService } from '../../providers/unsplash/unsplash-service';
 import  { TimerComponent } from '../../components/timer/timer-component'
 
@@ -27,49 +28,20 @@ export class UserPage {
       document.getElementsByTagName("section")[0].parentNode.removeChild(document.getElementsByTagName("section")[0])
     }
     // create page skeleton
-    let pageSkeleton = `
-      <section class="valign-wrapper">
-
-        <nav class="row transparent z-depth-0 flow-text">
-          <div class="input-field col s6">
-            <i id="icon-search" class="material-icons prefix">search</i>
-            <input id="search" type="text" class="validate">
-          </div>
-          <div class="col s6 right-align">
-              <i id="download" class="material-icons">file_download</i>
-          </div>
-        </nav>
-
-        <main class="valign center-align">
-          <div class="row">
-            <div class="col s12">
-              <h1 id="time"></h1>
-              <p class="greetings">${this.pageTitle} ${this.userName}!</p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col s12">
-              <a href="#" class="btn transparent z-depth-0">btn 1</a>
-              <a href="#" class="btn transparent z-depth-0">btn 2</a>
-              <a href="#" class="btn transparent z-depth-0">btn 3</a>
-            </div>
-          </div>
-        </main>
-
-        <footer>
-          <div class="row">
-            <div class="col s6 left-align">Photo by <address class="author"></address></div>
-            <div class="col s6 right-align">This app using <a href="https://unsplash.com" target="_blank" title="Unsplash API">Unsplash API</a></div>
-          </div>
-        </footer>
-
-      </section>
-    `;
+    let pageSkeleton = this.getPageSkeleton();
     // add page skeleton in body
     this.appBody.insertAdjacentHTML( 'afterbegin', pageSkeleton )
     document.getElementsByTagName("section")[0].style.opacity = 0;
     this.displayTime()
     this.getBackgroundIMG()
+  }
+
+  getPageSkeleton(){
+    // return page skeleton
+    let data = {}; // create obj to pass data
+    data.pageTitle = this.pageTitle // asigne data
+    data.userName = this.userName
+    return  userSkeleton(data);
   }
 
   loadEventUI(){
@@ -80,6 +52,10 @@ export class UserPage {
           if(event.target.value.length >= 1){
             console.log('https://www.google.ch/search?q='+event.target.value)
             this.onGoToLink(event,'https://www.google.ch/search?q='+event.target.value)
+            // clean input value after go search
+            event.target.value = '';
+            // unfocus input element after go search
+            event.target.blur();
           }
         }
       })

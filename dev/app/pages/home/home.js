@@ -6,6 +6,7 @@
 * @Last modified time: 09-12-2016
 */
 
+import { homeSkeleton } from './home-skeleton';
 import { UserPage } from '../../pages/user/user';
 
 export class HomePage {
@@ -23,30 +24,18 @@ export class HomePage {
       document.getElementsByTagName("section")[0].parentNode.removeChild(document.getElementsByTagName("section")[0])
     }
     // create page skeleton
-    let pageSkeleton = `
-      <section class=" valign-wrapper ">
-        <div class="valign">
-          <div class=" row">
-
-            <div class="col s6 offset-s3">
-              <h1>${this.pageTitle}</h1>
-              <form>
-                <p>
-                  <label for="email">Email:</label> <input type="email" name="email" value="" placeholder="your@email.com"  /><br/>
-                  <label for="password">Password:</label> <input type="password" name="password" value=""  /><br/>
-                  <button>Login</button>
-                </p>
-              </form>
-            </div>
-
-          </div>
-        </div>
-
-      </section>`;
+    let pageSkeleton = this.getPageSkeleton();
     // add page skeleton in body
     this.appBody.insertAdjacentHTML( 'afterbegin', pageSkeleton )
     this.loadEventUI()
 
+  }
+
+  getPageSkeleton(){
+    // return page skeleton
+    let data = {}; // create obj to pass data
+    data.pageTitle = this.pageTitle // asigne data
+    return  homeSkeleton(data);
   }
 
   loadEventUI(){
