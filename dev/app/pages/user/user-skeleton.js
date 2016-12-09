@@ -19,13 +19,7 @@ export function userSkeleton(data){
             <p class="greetings">${data.pageTitle} ${data.userName}!</p>
           </div>
         </div>
-        <div class="row">
-          <div class="col s12">
-            <a href="#" class="btn transparent z-depth-0">btn 1</a>
-            <a href="#" class="btn transparent z-depth-0">btn 2</a>
-            <a href="#" class="btn transparent z-depth-0">btn 3</a>
-          </div>
-        </div>
+        <div id="LinksComponent"></div>
       </main>
 
       <footer>

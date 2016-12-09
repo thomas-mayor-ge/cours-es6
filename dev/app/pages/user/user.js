@@ -9,6 +9,7 @@
 import  { userSkeleton } from './user-skeleton';
 import  { UnsplashService } from '../../providers/unsplash/unsplash-service';
 import  { TimerComponent } from '../../components/timer/timer-component'
+import  { LinksComponent } from '../../components/links/links-component'
 
 export class UserPage {
 
@@ -33,6 +34,7 @@ export class UserPage {
     this.appBody.insertAdjacentHTML( 'afterbegin', pageSkeleton )
     document.getElementsByTagName("section")[0].style.opacity = 0;
     this.displayTime()
+    this.displayLinks()
     this.getBackgroundIMG()
   }
 
@@ -74,6 +76,9 @@ export class UserPage {
     new TimerComponent()
   }
 
+  displayLinks(){
+    new LinksComponent();
+  }
   getBackgroundIMG(){
       let unsplash = new UnsplashService();
       let queryService = unsplash.getRandomImg()
