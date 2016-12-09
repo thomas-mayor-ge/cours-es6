@@ -3,7 +3,7 @@
 * @Date:   08-12-2016
 * @Email:  contact@nicolasfazio.ch
 * @Last modified by:   webmaster-fazio
-* @Last modified time: 08-12-2016
+* @Last modified time: 09-12-2016
 */
 
 export class StorageService{
@@ -14,12 +14,12 @@ export class StorageService{
   }
 
   loadData(){
-    let db = this.read(this.dbName)
+    let db = this.read()
     if(db){
       this.db.push(db)
     }
     else {
-      this.create(this.dbName)
+      this.create()
       this.db.push({})
     }
     console.log('StorageService: database ready ->', this.db)
