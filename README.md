@@ -9,9 +9,9 @@
 # COURS ECMA SCRIPT 6
   DEVELOPPEMENT &amp; PRODUCTION WORKFLOW
 
-## Step 10 - 13 Display page on img bg loaded | Correction
+## Step 10 - 14 Create a BackgroundComponent | Correction
 
-- display page content when bg img is complete loaded
+- use a component to display the background page 
 - $ nvm use 6
 - $ npm install
 - $ gulp
