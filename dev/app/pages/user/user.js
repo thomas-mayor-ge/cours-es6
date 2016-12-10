@@ -3,7 +3,7 @@
 * @Date:   15-09-2016
 * @Email:  contact@nicolasfazio.ch
 * @Last modified by:   webmaster-fazio
-* @Last modified time: 09-12-2016
+* @Last modified time: 10-12-2016
 */
 
 import  { userSkeleton } from './user-skeleton';
@@ -99,10 +99,16 @@ export class UserPage {
     if(pageContainer){
       // some css with JS for BG
       pageContainer.style.color = `#fff`;
-      pageContainer.style.opacity = `1`;
-      pageContainer.style.background = `url(${data[0].urls.regular}) center center no-repeat`;
       pageContainer.style.backgroundSize = `cover`;
-
+      // charge img url into a IMG element to detect loading complet
+      let img = new Image();
+      img.src = data[0].urls.regular
+      pageContainer.style.background = `url(${data[0].urls.regular}) center center no-repeat`;
+      // listen loading img.src to display $pageContainer
+      img.addEventListener('load', event => {
+        console.log('Background img loaded!')
+        pageContainer.style.opacity = `1`;
+      })
     }
   }
 
