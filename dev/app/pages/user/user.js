@@ -7,9 +7,9 @@
 */
 
 import  { userSkeleton } from './user-skeleton';
-import  { UnsplashService } from '../../providers/unsplash/unsplash-service';
 import  { TimerComponent } from '../../components/timer/timer-component'
 import  { LinksComponent } from '../../components/links/links-component'
+import  { BackgroundComponent } from '../../components/background/background-component'
 
 export class UserPage {
 
@@ -79,59 +79,9 @@ export class UserPage {
   displayLinks(){
     new LinksComponent();
   }
+
   getBackgroundIMG(){
-      let unsplash = new UnsplashService();
-      let queryService = unsplash.getRandomImg()
-      queryService.then((response)=>{
-        //console.log('res 1 -> ', response)
-         this.displayBackground(JSON.parse(response))
-         return response
-       })
-       .then((response)=>{
-         this.displayImgInfo(JSON.parse(response));
-       })
-  }
-
-  displayBackground(data){
-    // console.log('service response-> ')
-    // console.log( data[0] )
-    let pageContainer = document.getElementsByTagName("section")[0]
-    if(pageContainer){
-      // some css with JS for BG
-      pageContainer.style.color = `#fff`;
-      pageContainer.style.backgroundSize = `cover`;
-      // charge img url into a IMG element to detect loading complet
-      let img = new Image();
-      img.src = data[0].urls.regular
-      pageContainer.style.background = `url(${data[0].urls.regular}) center center no-repeat`;
-      // listen loading img.src to display $pageContainer
-      img.addEventListener('load', event => {
-        console.log('Background img loaded!')
-        this.fadeIn(pageContainer)
-      })
-    }
-  }
-
-  displayImgInfo(data){
-    //console.log('displayImgInfo-> ',data)
-    // add author info
-    let addressContainer = document.getElementsByTagName("address")[0]
-    if(addressContainer){
-      addressContainer.style.cursor = 'pointer';
-      addressContainer.style.textDecoration = 'underline';
-      addressContainer.style.display = 'inline';
-      addressContainer.innerHTML = `${data[0].user.name}`
-      addressContainer.addEventListener('click', event =>
-        this.onGoToLink(event, `https://unsplash.com/@${data[0].user.username}`), false
-      )
-    }
-    // add download link for img
-    let downEl = document.getElementById("download")
-    if(downEl){
-      downEl.addEventListener('click', event =>
-        this.onGoToLink(event, data[0].links.download), false
-      )
-    }
+    new BackgroundComponent();
   }
 
   onGoToLink(event,url){
@@ -160,8 +110,4 @@ export class UserPage {
     return this.formData.email.split("@")[0].split(' ').map(c => c.slice(0, 1).toUpperCase() + c.slice(1)).join(' ')
   }
 
-  fadeIn(htmlElement){
-    // use add class CSS to add display transition
-    htmlElement.classList.add('fadeIn')
-  }
 }
