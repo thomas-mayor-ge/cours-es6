@@ -32,7 +32,7 @@ export class UserPage {
     let pageSkeleton = this.getPageSkeleton();
     // add page skeleton in body
     this.appBody.insertAdjacentHTML( 'afterbegin', pageSkeleton )
-    document.getElementsByTagName("section")[0].style.opacity = 0;
+    document.getElementsByTagName("section")[0].classList.add('displayOpacity');
     this.displayTime()
     this.displayLinks()
     this.getBackgroundIMG()
@@ -107,7 +107,8 @@ export class UserPage {
       // listen loading img.src to display $pageContainer
       img.addEventListener('load', event => {
         console.log('Background img loaded!')
-        pageContainer.style.opacity = `1`;
+        //pageContainer.style.opacity = `1`;
+        this.fadeIn(pageContainer)
       })
     }
   }
@@ -158,5 +159,10 @@ export class UserPage {
   getUserName(){
     // return usernal with first letter Cappitalized
     return this.formData.email.split("@")[0].split(' ').map(c => c.slice(0, 1).toUpperCase() + c.slice(1)).join(' ')
+  }
+
+  fadeIn(htmlElement){
+    // use add class CSS to add display transition
+    htmlElement.classList.add('fadeIn')
   }
 }

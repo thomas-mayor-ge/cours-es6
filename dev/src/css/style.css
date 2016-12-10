@@ -74,3 +74,15 @@ footer a {
   text-decoration: underline;
   font-style: italic;
 }
+
+/* CSS Animation Effects */
+section {
+  background-size: cover !important;
+}
+*.displayOpacity{
+  opacity: 0;
+}
+*.fadeIn {
+  opacity: 1;
+  transition: 0.2s ease;
+}
