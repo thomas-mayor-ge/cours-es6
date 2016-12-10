@@ -107,7 +107,6 @@ export class UserPage {
       // listen loading img.src to display $pageContainer
       img.addEventListener('load', event => {
         console.log('Background img loaded!')
-        //pageContainer.style.opacity = `1`;
         this.fadeIn(pageContainer)
       })
     }
