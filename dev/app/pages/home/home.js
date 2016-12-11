@@ -3,7 +3,7 @@
 * @Date:   15-09-2016
 * @Email:  contact@nicolasfazio.ch
 * @Last modified by:   webmaster-fazio
-* @Last modified time: 09-12-2016
+* @Last modified time: 11-12-2016
 */
 
 import { homeSkeleton } from './home-skeleton';
@@ -13,7 +13,7 @@ export class HomePage {
 
   constructor(appBody,storageService){
     this.appBody = appBody
-    this.pageTitle = 'Welcome';
+    this.pageTitle = 'Welcome King';
     this.storage = storageService
     this.initUI();
   }
