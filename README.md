@@ -9,10 +9,10 @@
 # COURS ECMA SCRIPT 6
   DEVELOPPEMENT &amp; PRODUCTION WORKFLOW
 
-## Step 10 - 16 Create a Links Provider | Correction
+## Step 10 - 17 Creat Gulp task to deploy app on Github | Correction
 
-- add a Links provider to get the data url, title and altTitle
-- Add each links into DOM as a materialize link button
+- add node module gulp-gh-pages to create a deploy gulp task
+- Add .publish folder in .gitignore file
 - $ nvm use 6
 - $ npm install
 - $ gulp
