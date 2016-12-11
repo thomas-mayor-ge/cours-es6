@@ -13,7 +13,7 @@ export class HomePage {
 
   constructor(appBody,storageService){
     this.appBody = appBody
-    this.pageTitle = 'Welcome King';
+    this.pageTitle = 'Welcome';
     this.storage = storageService
     this.initUI();
   }
