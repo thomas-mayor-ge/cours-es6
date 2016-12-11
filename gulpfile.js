@@ -83,6 +83,7 @@ gulp.task("copy-js-dep", function(){
 gulp.task('push-pages', function(){
   shell.exec('git subtree split --prefix dist -b gh-pages');
   shell.exec('git push -f origin gh-pages:gh-pages');
+  shell.exec('git branch -D gh-pages')
 });
 
 // Task to run local server
