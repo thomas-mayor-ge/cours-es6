@@ -81,10 +81,7 @@ gulp.task("copy-js-dep", function(){
 
 // Tash to push ./dist folder on Github gh-pages
 gulp.task('push-pages', function(){
-  //shell.exec('git branch gh-pages');
-  //shell.exec('git subtree split --prefix dist -b gh-pages');
-  //shell.exec('git push origin `git subtree split --prefix dist` gh-pages --force');
-//  shell.exec('git branch -D gh-pages')
+  shell.exec('git subtree push --prefix dist origin gh-pages');
 });
 
 // Task to run local server
