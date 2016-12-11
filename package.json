@@ -25,6 +25,7 @@
     "gulp-babel": "^6.1.2",
     "gulp-remove-html-comments": "^1.0.1",
     "gulp-util": "^3.0.7",
+    "shelljs": "^0.7.5",
     "vinyl-source-stream": "^1.1.0",
     "vinyl-transform": "^1.0.0"
   }

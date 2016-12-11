@@ -3,7 +3,7 @@
 * @Date:   15-09-2016
 * @Email:  contact@nicolasfazio.ch
 * @Last modified by:   webmaster-fazio
-* @Last modified time: 09-12-2016
+* @Last modified time: 11-12-2016
 */
 
 // importer les modules NPM
@@ -16,6 +16,7 @@ var source = require('vinyl-source-stream');
 var removeHtmlComments  = require('gulp-remove-html-comments');
 var browserSync = require('browser-sync').create();
 var reload = browserSync.reload;
+var shell = require('shelljs');
 
 // Config of project folders
 var config = {
@@ -76,6 +77,11 @@ gulp.task("copy-fonts", function(){
 gulp.task("copy-js-dep", function(){
     return gulp.src(config.jsDep)
         .pipe(gulp.dest(config.desDir+'/js'))
+});
+
+// Tash to push ./dist folder on Github gh-pages
+gulp.task('push-pages', function(){
+    shell.exec('git subtree push --prefix dist origin gh-pages')
 });
 
 // Task to run local server
