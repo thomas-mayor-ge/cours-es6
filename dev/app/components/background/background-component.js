@@ -3,7 +3,7 @@
 * @Date:   10-12-2016
 * @Email:  contact@nicolasfazio.ch
 * @Last modified by:   webmaster-fazio
-* @Last modified time: 10-12-2016
+* @Last modified time: 11-12-2016
 */
 
 import  { UnsplashService } from '../../providers/unsplash/unsplash-service';
@@ -29,6 +29,9 @@ export class BackgroundComponent {
      .then((response)=>{
        this.displayImgInfo(JSON.parse(response));
      })
+      .catch((e)=> {
+          this.handleErrors(e)
+      });
   }
 
   displayBackground(data){
@@ -80,5 +83,36 @@ export class BackgroundComponent {
   fadeIn(htmlElement){
     // use add class CSS to add display transition
     htmlElement.classList.add('fadeIn')
+  }
+
+  handleErrors(error){
+    console.log("XXXXXXX ERROR -> ");
+    console.log(error);
+    if(this.addressContainer){
+      this.addressContainer.parentElement.innerHTML = ''
+    }
+    if(this.downEl){
+      this.downEl.innerHTML = '';
+    }
+    if(document.getElementById('search')){
+      document.getElementById('search').parentElement.innerHTML = '';
+    }
+    if(document.getElementById('LinksComponent')){
+      document.getElementById('LinksComponent').innerHTML = '';
+    }
+    if(this.pageContainer){
+
+      if(document.getElementById('time')){
+        let errorSkeleton = `
+          ${error}
+        `;
+        document.getElementById('time').parentElement.insertAdjacentHTML( 'afterbegin', errorSkeleton )
+      }
+      // some css with JS for BG
+      this.pageContainer.style.color = `#fff`;
+      this.pageContainer.style.backgroundSize = `cover`;
+      this.fadeIn(this.pageContainer)
+    }
+
   }
 }
