@@ -5,7 +5,8 @@ plugins/
 *.swp
 .DS_Store
 Thumbs.db
-#dist
+dist
+.publish
 
 config.ts
 *-config.js
