@@ -17,6 +17,9 @@ var removeHtmlComments  = require('gulp-remove-html-comments');
 var browserSync = require('browser-sync').create();
 var reload = browserSync.reload;
 var ghPages = require('gulp-gh-pages');
+var uglify = require('gulp-uglify');
+var buffer = require("vinyl-buffer");
+var sourcemaps = require('gulp-sourcemaps');
 
 // Config of project folders
 var config = {
@@ -48,7 +51,11 @@ gulp.task("build-js", function(){
         presets : ["es2015"]
     }))
     .bundle()
-    .pipe(source("bundle.js"))
+    .pipe(source('bundle.js'))
+    .pipe(buffer())
+    .pipe(sourcemaps.init({loadMaps: true}))
+    .pipe(uglify())
+    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(config.desDir + '/js'))
     .pipe(reload({stream:true}));
 });

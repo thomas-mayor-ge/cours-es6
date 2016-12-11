@@ -6,6 +6,7 @@ export function homeSkeleton(data){
 
           <div class="col s6 offset-s3">
             <h1>${data.pageTitle}</h1>
+            <p>Please login to use this application</p>
             <form>
               <p>
                 <label for="email">Email:</label> <input type="email" name="email" value="" placeholder="your@email.com"  /><br/>

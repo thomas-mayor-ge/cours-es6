@@ -9,10 +9,10 @@
 # COURS ECMA SCRIPT 6
   DEVELOPPEMENT &amp; PRODUCTION WORKFLOW
 
-## Step 10 - 17 Creat Gulp task to deploy app on Github | Correction
+## Step 10 - 18 Update gulp build-js task to uglify | Correction
 
-- add node module gulp-gh-pages to create a deploy gulp task
-- Add .publish folder in .gitignore file
+- add node module gulp-uglify, vinyl-buffer & gulp-sourcemaps
+- Update Gulp build-js task
 - $ nvm use 6
 - $ npm install
 - $ gulp
