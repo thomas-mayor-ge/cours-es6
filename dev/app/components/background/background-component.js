@@ -104,7 +104,9 @@ export class BackgroundComponent {
 
       if(document.getElementById('time')){
         let errorSkeleton = `
-          ${error}
+          <div class="chip red lighten-2">
+            <span class="white-text">${error}</span>
+          </div>
         `;
         document.getElementById('time').parentElement.insertAdjacentHTML( 'afterbegin', errorSkeleton )
       }
