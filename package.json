@@ -23,6 +23,7 @@
     "browserify": "^13.1.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
+    "gulp-gh-pages": "^0.5.4",
     "gulp-remove-html-comments": "^1.0.1",
     "gulp-util": "^3.0.7",
     "shelljs": "^0.7.5",

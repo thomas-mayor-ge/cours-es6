@@ -17,6 +17,7 @@ var removeHtmlComments  = require('gulp-remove-html-comments');
 var browserSync = require('browser-sync').create();
 var reload = browserSync.reload;
 var shell = require('shelljs');
+var ghPages = require('gulp-gh-pages');
 
 // Config of project folders
 var config = {
@@ -85,6 +86,10 @@ gulp.task('push-pages', function(){
   shell.exec('git add -f dist');
   shell.exec('git commit -m"deploy to gh-pages"');
   shell.exec('git subtree push  --prefix dist origin gh-pages');
+});
+gulp.task('deploy', function() {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages());
 });
 
 // Task to run local server
