@@ -3,7 +3,7 @@
 * @Date:   15-09-2016
 * @Email:  contact@nicolasfazio.ch
 * @Last modified by:   webmaster-fazio
-* @Last modified time: 10-12-2016
+* @Last modified time: 12-12-2016
 */
 
 import  { userSkeleton } from './user-skeleton';
@@ -67,6 +67,15 @@ export class UserPage {
       iconSearch.addEventListener('click', event => {
         if(search){
           search.focus()
+        }
+      })
+    }
+    let closeSearch = document.getElementById('closeSearch')
+    if(closeSearch){
+      closeSearch.addEventListener('click', event => {
+        if(search){
+          search.value = '';
+          search.blur()
         }
       })
     }

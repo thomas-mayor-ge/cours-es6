@@ -4,8 +4,11 @@ export function userSkeleton(data){
 
       <nav class="row transparent z-depth-0 flow-text">
         <div class="input-field col s6">
-          <i id="icon-search" class="material-icons prefix">search</i>
-          <input id="search" type="text" class="validate">
+            <div class="input-field">
+              <input id="search" type="search" required>
+              <label for="search"><i class="material-icons">search</i></label>
+              <i class="material-icons" id="closeSearch">close</i>
+            </div>
         </div>
         <div class="col s6 right-align">
             <i id="download" class="material-icons">file_download</i>
