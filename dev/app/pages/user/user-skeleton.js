@@ -19,7 +19,7 @@ export function userSkeleton(data){
         <div class="row">
           <div class="col s12">
             <h1 id="time"></h1>
-            <p class="greetings">${data.pageTitle} ${data.userName}!</p>
+            <p class="greetings"><span id="geetingTitle">${data.pageTitle}</span> ${data.userName}!</p>
           </div>
         </div>
         <div id="LinksComponent"></div>

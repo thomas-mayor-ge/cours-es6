@@ -100,6 +100,18 @@ export class UserPage {
   }
 
   grettings(){
+    let grettings = this.getGreetings()
+    setInterval(()=>{
+      grettings = this.getGreetings()
+      let greetingTitle = document.getElementById('geetingTitle')
+      if(greetingTitle){
+        greetingTitle.innerHTML = grettings
+      }
+    },150000)
+    return grettings
+  }
+  
+  getGreetings(){
     let grettings;
     switch (true) {
       case this.time.getHours()>5 && this.time.getHours()<=10:
@@ -111,7 +123,7 @@ export class UserPage {
       default:
         grettings = 'Good evening'
     }
-    return grettings
+    return grettings;
   }
 
   getUserName(){
