@@ -3,7 +3,7 @@
 * @Date:   09-12-2016
 * @Email:  contact@nicolasfazio.ch
 * @Last modified by:   webmaster-fazio
-* @Last modified time: 11-12-2016
+* @Last modified time: 19-12-2016
 */
 
 import  { LinksService } from '../../providers/links/links-service';
@@ -45,7 +45,7 @@ export class LinksComponent{
     //console.log(dataReady.join())
     let linksContent = document.getElementById('linksData')
     if(linksContent){
-      linksContent.innerHTML = dataReady.join()
+      linksContent.innerHTML = dataReady.join(' ')
     }
   }
 }
