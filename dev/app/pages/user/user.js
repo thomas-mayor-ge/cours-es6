@@ -3,7 +3,7 @@
 * @Date:   15-09-2016
 * @Email:  contact@nicolasfazio.ch
 * @Last modified by:   webmaster-fazio
-* @Last modified time: 12-12-2016
+* @Last modified time: 19-12-2016
 */
 
 import  { userSkeleton } from './user-skeleton';
@@ -61,6 +61,7 @@ export class UserPage {
           }
         }
       })
+      search.focus()
     }
     let iconSearch = document.getElementById('icon-search')
     if(iconSearch){
@@ -110,7 +111,7 @@ export class UserPage {
     },150000)
     return grettings
   }
-  
+
   getGreetings(){
     let grettings;
     switch (true) {
