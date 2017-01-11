@@ -3,7 +3,7 @@
 * @Date:   15-09-2016
 * @Email:  contact@nicolasfazio.ch
 * @Last modified by:   webmaster-fazio
-* @Last modified time: 19-12-2016
+* @Last modified time: 11-01-2017
 */
 
 import  { userSkeleton } from './user-skeleton';
@@ -50,7 +50,7 @@ export class UserPage {
     let search = document.getElementById('search')
     if(search){
       search.addEventListener('keyup', event => {
-        if(event.key === 'Enter'){
+        if(event.keyCode === 13){
           if(event.target.value.length >= 1){
             console.log('https://www.google.ch/search?q='+event.target.value)
             this.onGoToLink(event,'https://www.google.ch/search?q='+event.target.value)
