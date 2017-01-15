@@ -16,7 +16,7 @@ export class UserPage {
   constructor(appBody, storageService){
     this.appBody = appBody
     this.storageService = storageService
-    this.formData = this.storageService.db[0].user
+    this.formData = this.storageService.db[this.storageService.currentUser].user
     this.pageTitle = this.grettings();
     this.userName = this.getUserName();
     this.initUI();
@@ -129,6 +129,7 @@ export class UserPage {
   }
 
   getUserName(){
+    //console.log(this.formData)
     // return usernal with first letter Cappitalized
     return this.formData.email.split("@")[0].split(' ').map(c => c.slice(0, 1).toUpperCase() + c.slice(1)).join(' ')
   }

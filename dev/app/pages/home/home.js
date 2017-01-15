@@ -3,7 +3,7 @@
 * @Date:   15-09-2016
 * @Email:  contact@nicolasfazio.ch
 * @Last modified by:   webmaster-fazio
-* @Last modified time: 11-12-2016
+* @Last modified time: 15-01-2017
 */
 
 import { homeSkeleton } from './home-skeleton';
@@ -54,7 +54,7 @@ export class HomePage {
         validationInput++
       }
     }
-    if(validationInput === 2){
+    if(validationInput === (form.length-1)){
       // save in StorageService
       this.storage.login(formInput)
       // load UserPage

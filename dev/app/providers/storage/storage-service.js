@@ -3,7 +3,7 @@
 * @Date:   08-12-2016
 * @Email:  contact@nicolasfazio.ch
 * @Last modified by:   webmaster-fazio
-* @Last modified time: 09-12-2016
+* @Last modified time: 15-01-2017
 */
 
 export class StorageService{
@@ -11,12 +11,13 @@ export class StorageService{
   constructor(){
     this.dbName = 'browser-dev'
     this.db = []
+    this.currentUser = null
   }
 
   loadData(){
     let db = this.read()
     if(db){
-      this.db.push(db)
+      this.db.push(...db)
     }
     else {
       this.create()
@@ -26,17 +27,54 @@ export class StorageService{
   }
 
   isAuth(){
-    if(this.db[0].user){
-      return this.db[0]
+    for (var i = 0; i < this.db.length; i++) {
+      if(this.db[i].user){
+        if(this.db[i].user.isAuth){
+          this.currentUser = i
+          return this.db[i].user.isAuth
+        }
+      }
     }
   }
 
   login(userData){
-    console.log('StorageService: login->', userData)
     let isAuth = this.isAuth()
+    console.log('StorageService: login->', isAuth, userData)
     if(!isAuth){
-      this.db[0].user = userData
-      this.update()
+      if(this.db.length >0){
+        // if db is not empty, found if user exist in db
+        let found = false;
+        this.db.forEach((db, index)=>{
+          if(userData.email === db.user.email){
+            // user is found !!
+            console.log('found user-> ', db.user)
+            found = true;
+            this.db[index].user.isAuth = true;
+            this.currentUser = index
+            this.update()
+          }
+        })
+        // if user is not found, creat a new user
+        if(found === false){
+            let newUser = {};
+            newUser.user = userData
+            newUser.user.isAuth = true
+            this.currentUser = this.db.length
+            this.db.push(newUser)
+            console.log('add new user-> ', newUser)
+            this.update()
+        }
+      }
+      else{
+        // if db is empty: add the first user
+        let newUser = {};
+        newUser.user = userData
+        newUser.user.isAuth = true
+        this.db.push(newUser)
+        this.currentUser = 0
+        console.log('create first user-> ', newUser)
+        this.update()
+      }
     }
   }
 
@@ -44,7 +82,7 @@ export class StorageService{
 
   create(){
     console.log('StorageService: create->', this.dbName)
-    localStorage.setItem(this.dbName, JSON.stringify({}))
+    localStorage.setItem(this.dbName, JSON.stringify([]))
   }
 
   read(){
@@ -57,8 +95,8 @@ export class StorageService{
   }
 
   update(){
-    console.log('StorageService: update->', this.db[0])
-    localStorage.setItem(this.dbName, JSON.stringify(this.db[0]))
+    console.log('StorageService: update->', this.db)
+    localStorage.setItem(this.dbName, JSON.stringify(this.db))
   }
 
   delete(item){

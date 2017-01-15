@@ -3,7 +3,7 @@
 * @Date:   11-12-2016
 * @Email:  contact@nicolasfazio.ch
 * @Last modified by:   webmaster-fazio
-* @Last modified time: 14-01-2017
+* @Last modified time: 15-01-2017
 */
 
 export class LinksService {
@@ -35,7 +35,7 @@ export class LinksService {
       Using localStorage to save user links data
     */
     this.storageService = storageService;
-    let userData = this.storageService.db[0].user
+    let userData = this.storageService.db[this.storageService.currentUser].user
     if(userData.links){
       this.arrayData = userData.links
     }
@@ -59,7 +59,7 @@ export class LinksService {
 
   saveData(dataLinks){
     console.log('LinksService: Save data-> ', dataLinks)
-    this.storageService.db[0].user.links = dataLinks
+    this.storageService.db[this.storageService.currentUser].user.links = dataLinks
     this.storageService.update()
   }
 }

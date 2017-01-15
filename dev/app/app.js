@@ -3,7 +3,7 @@
 * @Date:   01-09-2016
 * @Email:  contact@nicolasfazio.ch
 * @Last modified by:   webmaster-fazio
-* @Last modified time: 09-12-2016
+* @Last modified time: 15-01-2017
 */
 
 import { HomePage } from './pages/home/home';
@@ -20,11 +20,11 @@ class MyApp {
 
   start(){
     if(this.storage.isAuth()){
-      console.log('user is auth-> ',this.storage.db[0].user)
+      console.log('user auth-> ',this.storage.isAuth(), this.storage.db[this.storage.currentUser])
       new UserPage(this.appBody,this.storage)
     }
     else {
-      console.log('user is not auth-> ',this.storage.db[0])
+      console.log('user auth-> ',this.storage.isAuth())
       // init HomePage
       let homePage = new HomePage(this.appBody, this.storage);
     }

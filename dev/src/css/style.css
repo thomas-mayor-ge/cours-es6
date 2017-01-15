@@ -119,7 +119,7 @@ aside.open #close {
   background: #333;
   color:#fff;
 }
-aside button,aside button:focus  {
+button,button:focus  {
   background: #fff;
   color:#333;
   border:0px;

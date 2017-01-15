@@ -8,6 +8,7 @@
 
 import  { LinksService } from '../../providers/links/links-service';
 import  { linkSkeleton, asideSkeleton, inputLinksSkeleton } from './links-skeleton';
+import { HomePage } from '../../pages/home/home';
 
 export class LinksComponent{
 
@@ -26,7 +27,7 @@ export class LinksComponent{
     if(this.content){
       // format data before send to aside template Skeleton
       let data = {}
-      data.user = this.storageService.db[0].user;
+      data.user = this.storageService.db[this.storageService.currentUser].user;
       let asideSk = this.getSkeleton(asideSkeleton, data)
 
       let linkSk = this.getSkeleton(linkSkeleton)
@@ -176,7 +177,9 @@ export class LinksComponent{
 
   logOut(){
     console.log('user logout')
-    this.storageService.db[0].user.isAuth = false;
+    this.storageService.db[this.storageService.currentUser].user.isAuth = false;
     this.storageService.update()
+    this.toggleAside()
+    location.reload();
   }
 }
