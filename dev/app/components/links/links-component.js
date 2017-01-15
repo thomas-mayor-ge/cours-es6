@@ -23,6 +23,7 @@ export class LinksComponent{
     this.loadEventUI()
   }
 
+  /* Core Methode */
   initUI(){
     if(this.content){
       // format data before send to aside template Skeleton
@@ -48,11 +49,12 @@ export class LinksComponent{
     this.linksService.getData().then((response)=>{
       // then get response data and pass it to displayDataLinks()
       //console.log(response)
-      this.displayDataLinks(response)
+      this.displayDataLinksBtn(response)
+      this.displayDataLinksInput(response)
     })
   }
 
-  displayDataLinks(dataArray){
+  displayDataLinksBtn(dataArray){
     /*
      display Data with button
     */
@@ -65,11 +67,14 @@ export class LinksComponent{
       // inject template into DOM
       linksContent.innerHTML = dataReady.join(' ')
     }
+  }
 
+  displayDataLinksInput(dataArray){
     /*
       display data in aside form (into input section)
     */
     // formating output data
+    let datas = [...dataArray]
     let indexInput = 0;
     let inputDataReady = datas.map((link)=>{
       // format data before send to template Skeleton
@@ -79,7 +84,6 @@ export class LinksComponent{
       // call Seleton with data ready
       let inputSk = this.getSkeleton(inputLinksSkeleton, data)
       ++indexInput;
-
       return inputSk
     })
     // add empty input if inputDataReady.length < 3
@@ -104,6 +108,14 @@ export class LinksComponent{
     }
   }
 
+  saveData(dataLinks){
+    console.log('Save data-> ', dataLinks)
+    this.linksService.saveData(dataLinks)
+    this.toggleAside()
+    this.displayDataLinks(dataLinks)
+  }
+
+  /* Event Loading Methode */
   loadEventUI(){
     // Save data link form
     let buttonSaveDataLinks = document.getElementById('saveLinksData')
@@ -127,6 +139,7 @@ export class LinksComponent{
     }
   }
 
+  /* Event Methode */
   formValidator(e){
     e.preventDefault()
     let z = [];
@@ -141,7 +154,6 @@ export class LinksComponent{
         z[x[i].name].url = x[i].value
       }
     }
-
     let o = [];
     z.map((el)=>{
       //console.log(el)
@@ -159,13 +171,6 @@ export class LinksComponent{
     // }
     // Save data
     this.saveData(o)
-  }
-
-  saveData(dataLinks){
-    console.log('Save data-> ', dataLinks)
-    this.linksService.saveData(dataLinks)
-    this.toggleAside()
-    this.displayDataLinks(dataLinks)
   }
 
   toggleAside(){
