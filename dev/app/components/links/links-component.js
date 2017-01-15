@@ -8,7 +8,6 @@
 
 import  { LinksService } from '../../providers/links/links-service';
 import  { linkSkeleton, asideSkeleton, inputLinksSkeleton } from './links-skeleton';
-import { HomePage } from '../../pages/home/home';
 
 export class LinksComponent{
 
