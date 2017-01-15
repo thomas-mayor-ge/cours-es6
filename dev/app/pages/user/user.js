@@ -3,7 +3,7 @@
 * @Date:   15-09-2016
 * @Email:  contact@nicolasfazio.ch
 * @Last modified by:   webmaster-fazio
-* @Last modified time: 11-01-2017
+* @Last modified time: 15-01-2017
 */
 
 import  { userSkeleton } from './user-skeleton';
@@ -15,8 +15,8 @@ export class UserPage {
 
   constructor(appBody, storageService){
     this.appBody = appBody
-    this.formData = storageService.db[0].user
-    this.time = new Date()
+    this.storageService = storageService
+    this.formData = this.storageService.db[0].user
     this.pageTitle = this.grettings();
     this.userName = this.getUserName();
     this.initUI();
@@ -87,7 +87,7 @@ export class UserPage {
   }
 
   displayLinks(){
-    new LinksComponent();
+    new LinksComponent(this.storageService);
   }
 
   getBackgroundIMG(){
@@ -113,12 +113,13 @@ export class UserPage {
   }
 
   getGreetings(){
+  let time = new Date()
     let grettings;
     switch (true) {
-      case this.time.getHours()>5 && this.time.getHours()<=10:
+      case time.getHours()>5 && time.getHours()<=10:
         grettings = 'Good morning'
         break;
-      case this.time.getHours()>=11 && this.time.getHours()<=17:
+      case time.getHours()>=11 && time.getHours()<=17:
         grettings = 'Hello'
         break;
       default:
