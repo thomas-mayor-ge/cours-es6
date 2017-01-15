@@ -35,7 +35,7 @@ export function asideSkeleton(data){
               <input placeholder="title" name="0" type="text" class="validate">
             </div>
             <div class="input-field col s8">
-              <input placeholder="url" name="0" type="text" class="validate">
+              <input placeholder="url" name="0" type="url" class="validate">
             </div>
           </div>
           <div class="row">
@@ -43,7 +43,7 @@ export function asideSkeleton(data){
               <input placeholder="title" name="1" type="text" class="validate">
             </div>
             <div class="input-field col s8">
-              <input placeholder="url" name="1" type="text" class="validate">
+              <input placeholder="url" name="1" type="url" class="validate">
             </div>
           </div>
           <div class="row">
@@ -51,7 +51,7 @@ export function asideSkeleton(data){
               <input placeholder="title" name="2" type="text" class="validate">
             </div>
             <div class="input-field col s8">
-              <input placeholder="url" name="2" type="text" class="validate">
+              <input placeholder="url" name="2" type="url" class="validate">
             </div>
           </div>
         </form>
@@ -75,7 +75,7 @@ export function inputLinksSkeleton(data){
         <input placeholder="title" name="${data.indexInput}" type="text" class="validate" value="${data.link.title}">
       </div>
       <div class="input-field col s8">
-        <input placeholder="url" name="${data.indexInput}" type="text" class="validate" value="${data.link.url}">
+        <input placeholder="url" name="${data.indexInput}" type="url" class="validate" value="${data.link.url}">
       </div>
     </div>
   `;
