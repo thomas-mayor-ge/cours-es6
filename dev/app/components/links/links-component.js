@@ -3,7 +3,7 @@
 * @Date:   09-12-2016
 * @Email:  contact@nicolasfazio.ch
 * @Last modified by:   webmaster-fazio
-* @Last modified time: 15-01-2017
+* @Last modified time: 16-01-2017
 */
 
 import  { LinksService } from '../../providers/links/links-service';
@@ -111,7 +111,8 @@ export class LinksComponent{
     console.log('Save data-> ', dataLinks)
     this.linksService.saveData(dataLinks)
     this.toggleAside()
-    this.displayDataLinks(dataLinks)
+    this.displayDataLinksBtn(dataLinks)
+    this.displayDataLinksInput(dataLinks)
   }
 
   /* Event Loading Methode */
