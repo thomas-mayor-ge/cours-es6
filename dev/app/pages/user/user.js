@@ -3,7 +3,7 @@
 * @Date:   15-09-2016
 * @Email:  contact@nicolasfazio.ch
 * @Last modified by:   webmaster-fazio
-* @Last modified time: 15-01-2017
+* @Last modified time: 16-01-2017
 */
 
 import  { userSkeleton } from './user-skeleton';
@@ -108,7 +108,7 @@ export class UserPage {
       if(greetingTitle){
         greetingTitle.innerHTML = grettings
       }
-    },150000)
+    },15000)
     return grettings
   }
 
