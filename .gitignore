@@ -8,3 +8,5 @@ Thumbs.db
 dist
 
 config.ts
+apiKey-config.js
+.publish
