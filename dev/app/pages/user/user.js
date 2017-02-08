@@ -3,7 +3,7 @@
 * @Date:   15-09-2016
 * @Email:  contact@nicolasfazio.ch
 * @Last modified by:   webmaster-fazio
-* @Last modified time: 09-12-2016
+* @Last modified time: 08-02-2017
 */
 
 import  { UnsplashService } from '../../providers/unsplash/unsplash-service';
@@ -23,6 +23,7 @@ export class UserPage {
     if(document.getElementsByTagName("section")[0]){
       document.getElementsByTagName("section")[0].parentNode.removeChild(document.getElementsByTagName("section")[0])
     }
+    
     // create page skeleton
     let pageSkeleton = `
       <section>
