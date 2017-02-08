@@ -3,7 +3,7 @@
 * @Date:   15-09-2016
 * @Email:  contact@nicolasfazio.ch
 * @Last modified by:   webmaster-fazio
-* @Last modified time: 08-12-2016
+* @Last modified time: 08-02-2017
 */
 
 import  { UnsplashService } from '../../providers/unsplash/unsplash-service';
@@ -66,7 +66,7 @@ export class UserPage {
       let unsplash = new UnsplashService();
       let queryService = unsplash.getRandomImg()
       queryService.then((response)=>{
-        //console.log('res 1 -> ', response)
+        console.log('res 1 -> ', JSON.parse(response))
          this.displayBackground(JSON.parse(response))
        })
   }
