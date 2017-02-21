@@ -10,3 +10,4 @@ dist
 config.ts
 .publish
 apiKey-config.js
+*-config.js
