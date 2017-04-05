@@ -2,8 +2,8 @@
 * @Author: Nicolas Fazio <webmaster-fazio>
 * @Date:   07-12-2016
 * @Email:  contact@nicolasfazio.ch
-* @Last modified by:   webmaster-fazio
-* @Last modified time: 08-02-2017
+ * @Last modified by:   webmaster-fazio
+ * @Last modified time: 05-04-2017
 */
 
 import  { API_KEY_CONFIG } from '../../providers/unsplash/apiKey-config';
@@ -21,27 +21,15 @@ export class UnsplashService{
       //Return a new promise.
       return new Promise((resolve, reject)=> {
         // Do the usual XHR stuff
-        var req = new XMLHttpRequest();
-        req.open('GET', this.queryUrl+this.params.client_id);
-        req.onload = () =>{
-          // This is called even on 404 etc
-          // so check the status
-          if (req.status == 200) {
-            // Resolve the promise with the response text
+        // Ici, la requête sera émise de façon synchrone.
+          let req = new XMLHttpRequest();
+          req.open('GET', this.queryUrl+this.params.client_id, false); 
+          req.send(null);
+
+          if (req.status === 200) {
             resolve(req.responseText);
+          } else {
+            reject(req.statusText);
           }
-          else {
-            // Otherwise reject with the status text
-            // which will hopefully be a meaningful error
-            reject(Error(req.statusText));
-          }
-        };
-        // Handle network errors
-        req.onerror = ()=> {
-          reject(Error("Network Error"));
-        };
-        // Make the request
-        req.send();
-      });
   }
 }
