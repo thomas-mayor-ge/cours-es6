@@ -2,8 +2,8 @@
 * @Author: Nicolas Fazio <webmaster-fazio>
 * @Date:   15-09-2016
 * @Email:  contact@nicolasfazio.ch
-* @Last modified by:   webmaster-fazio
-* @Last modified time: 09-12-2016
+ * @Last modified by:   webmaster-fazio
+ * @Last modified time: 06-04-2017
 */
 
 import  { UnsplashService } from '../../providers/unsplash/unsplash-service';
@@ -31,7 +31,7 @@ export class UserPage {
       <section>
         <h1 id="time"></h1>
         <p>${this.pageTitle} ${this.userName}!</p>
-        <button id="download" class="waves-effect waves-light btn transparent z-depth-0">Download</button>
+        <button id="download" class="waves-effect waves-light btn transparent">Download</button>
         <div>
           <i class="material-icons">search</i>
           <input type="text" name="search" id="search" value="">
