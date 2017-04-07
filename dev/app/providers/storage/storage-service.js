@@ -2,14 +2,14 @@
 * @Author: Nicolas Fazio <webmaster-fazio>
 * @Date:   08-12-2016
 * @Email:  contact@nicolasfazio.ch
-* @Last modified by:   webmaster-fazio
-* @Last modified time: 09-12-2016
+ * @Last modified by:   webmaster-fazio
+ * @Last modified time: 07-04-2017
 */
 
 export class StorageService{
 
   constructor(){
-    this.dbName = 'browser-dev'
+    this.dbName = 'browser-dev-cours'
     this.db = []
   }
 

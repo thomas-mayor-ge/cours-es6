@@ -9,3 +9,4 @@ dist
 
 config.ts
 *-config.js
+.publish/
